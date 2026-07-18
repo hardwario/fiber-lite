@@ -1,0 +1,13 @@
+[Unit]
+Description=FIBER Lite Dashboard
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=__HOME__/fiber-lite-dashboard
+ExecStart=/usr/bin/python3 __HOME__/fiber-lite-dashboard/serve.py
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target

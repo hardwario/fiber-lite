@@ -1,0 +1,19 @@
+[logging]
+  level="info"
+  log_to_syslog=false
+
+[backend]
+  enabled="concentratord"
+
+  [backend.concentratord]
+  event_url = "ipc:///tmp/concentratord_event"
+  command_url = "ipc:///tmp/concentratord_command"
+
+[mqtt]
+  topic_prefix="eu868"
+  server="tcp://127.0.0.1:1883"
+  username=""
+  password=""
+  ca_cert=""
+  tls_cert=""
+  tls_key=""

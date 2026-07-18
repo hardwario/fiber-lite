@@ -1,0 +1,44 @@
+[logging]
+  level = "info"
+
+[sqlite]
+  path="sqlite:///var/lib/chirpstack/chirpstack.sqlite"
+  pragmas=[
+    "busy_timeout = 1000",
+    "foreign_keys = ON",
+  ]
+
+[redis]
+  servers = ["redis://localhost/"]
+  cluster = false
+
+[network]
+  net_id = "000000"
+  enabled_regions = [
+    "as923",
+    "as923_2",
+    "as923_3",
+    "as923_4",
+    "au915_0",
+    "cn470_10",
+    "cn779",
+    "eu433",
+    "eu868",
+    "in865",
+    "ism2400",
+    "kr920",
+    "ru864",
+    "us915_0",
+    "us915_1",
+  ]
+
+[api]
+  bind = "0.0.0.0:8080"
+  secret = "you-must-replace-this"
+
+[integration]
+  enabled = ["mqtt"]
+
+  [integration.mqtt]
+    server = "tcp://localhost:1883/"
+    json = true
