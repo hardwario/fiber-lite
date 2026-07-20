@@ -11,6 +11,13 @@ Lite uses a plain Raspberry Pi 5 with the RAK2287 + RAK5146 concentrator on the 
 Full step-by-step walkthrough, screenshots, and troubleshooting:
 **https://docs.hardwario.com/fiber-lite/installation**
 
+## Architecture
+
+<img src="images/data-flow.png" alt="FIBER Lite data flow: LoRaWAN device to RAK5146 concentrator to ChirpStack, Node-RED, InfluxDB, and Grafana" width="600">
+
+ChirpStack, Node-RED, InfluxDB, and Grafana all run **on the Raspberry Pi 5 itself** — no
+separate servers or cloud services required.
+
 ## Prerequisites
 
 - Raspberry Pi 5
@@ -56,6 +63,27 @@ for the UI walkthrough (not scriptable, ChirpStack has no CLI for this).
   systemd unit template. Copied into place by `100-install-dashboard.sh`.
 - `config-templates/` — `chirpstack.toml` and `chirpstack-mqtt-forwarder.toml`, installed by the
   matching scripts (secrets are generated/substituted at install time, not stored here).
+
+## Troubleshooting
+
+Full detail for each of these is on the corresponding docs page (linked below); this is just the
+short version.
+
+- **[SSH Connection Refused](https://docs.hardwario.com/fiber-lite/troubleshooting/ssh-connection-refused)** —
+  `ssh <user>@<ip>` fails with "Connection refused". Create an empty file named `ssh` on the
+  microSD card's boot partition (`bootfs`), reinsert, and power on.
+- **[SSH Permission Denied](https://docs.hardwario.com/fiber-lite/troubleshooting/ssh-permission-denied)** —
+  password always rejected. A cloud-init `meta-data` typo (`instance_id` instead of
+  `instance-id`) silently skips user creation on every boot. Fix the key and set a new value.
+- **[Docker Compose Plugin Not Found](https://docs.hardwario.com/fiber-lite/troubleshooting/docker-compose-plugin-not-found)** —
+  `apt install docker-compose-plugin` fails with "Unable to locate package". Install
+  `docker-compose` instead — that's Debian's actual package name.
+- **[Node-RED Installer 404](https://docs.hardwario.com/fiber-lite/troubleshooting/nodered-installer-404)** —
+  the install command 404s. Release asset filenames change between Node-RED versions; verify the
+  installer URL returns `200` before running it.
+- **[RTC -EREMOTEIO Error](https://docs.hardwario.com/fiber-lite/troubleshooting/rtc-remoteio-error)** —
+  `dmesg` shows `error -EREMOTEIO: RTC chip is not present`. Harmless — remove any external RTC
+  overlay line copied from the CM4-based FIBER guide; the Pi 5 has a built-in RTC.
 
 ## Status
 
