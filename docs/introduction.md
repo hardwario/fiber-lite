@@ -1,5 +1,7 @@
 # FIBER Lite
 
+### To get your FIBER Lite running, read the [**Quick Start Guide**](first-steps.md).
+
 **FIBER Lite** is a compact, all-in-one appliance built on the **Raspberry Pi 5** for quickly
 bringing up and testing **LoRaWAN** devices — in particular **HARDWARIO STICKER** and **HARDWARIO
 CHESTER** — without needing to stand up a separate LoRaWAN network server, database, and
@@ -24,6 +26,7 @@ temperature, uptime), so the device is usable without memorizing ports or IP-to-
 
 ## Quick Links
 
+* [**Quick Start Guide**](first-steps.md) – Step-by-step setup guide, the fast path.
 * [**Installation**](installation.md) – Bootstrap the Raspberry Pi 5 and install the full software stack.
 * [**Troubleshooting**](troubleshooting/) – Common install-time issues and their fixes.
 

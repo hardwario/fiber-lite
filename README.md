@@ -10,11 +10,12 @@ Lite uses a plain Raspberry Pi 5 with the RAK2287 + RAK5146 concentrator on the 
 
 <img src="images/data-flow.png" alt="FIBER Lite data flow: LoRaWAN device to RAK5146 concentrator to ChirpStack, Node-RED, InfluxDB, and Grafana" width="600">
 
-**Full documentation:** [**docs/introduction.md**](docs/introduction.md) — architecture, bill of
-materials, key features. [**docs/installation.md**](docs/installation.md) — the complete
-step-by-step walkthrough (screenshots, every install step, gateway/device registration, ports
-and default credentials). [**docs/troubleshooting/**](docs/troubleshooting/) — issues found so
-far and their fixes.
+**Full documentation:** [**docs/first-steps.md**](docs/first-steps.md) — quick start guide, the
+fast path from unboxed to running. [**docs/introduction.md**](docs/introduction.md) —
+architecture, bill of materials, key features. [**docs/installation.md**](docs/installation.md)
+— the complete step-by-step walkthrough (screenshots, every install step, gateway/device
+registration, ports and default credentials). [**docs/troubleshooting/**](docs/troubleshooting/)
+— issues found so far and their fixes.
 
 ## Quick start
 
